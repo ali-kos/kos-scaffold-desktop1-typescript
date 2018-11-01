@@ -9,7 +9,7 @@ interface IMenu {
   path: string;
   Component: string;
   icon: string;
-  name: string;
+  name?: string;
   mpid: string;
   route: string;
 }
@@ -17,11 +17,10 @@ interface IMenu {
 interface IProps {
   location: any;
 }
-
 export const Menus = ({ location }: IProps) => {
   // 过滤权限
-
   const visitMenu = loadsh.cloneDeep(siderMenus);
+
   const illegalKey = "mpid";
   visitMenu.forEach((item: any) => {
     if (item[illegalKey] && item[illegalKey].substr(0, 1) === "/") {
@@ -34,16 +33,16 @@ export const Menus = ({ location }: IProps) => {
       item.route = item.route.substr(0, item.route.indexOf(":") - 1);
     }
   });
-
+  // console.log('visitMenu ==>', visitMenu);
   // 生成menu树状结构
   const menuTree = [];
   for (const item of visitMenu) {
-    if (!item[illegalKey]) {
+    if (!item[illegalKey] && item.name) {
       menuTree.push(item);
     }
     const children = [];
     for (const item1 of visitMenu) {
-      if (item1[illegalKey] === item.path) {
+      if (item1[illegalKey] === item.path && item1.name) {
         children.push(item1);
       }
     }

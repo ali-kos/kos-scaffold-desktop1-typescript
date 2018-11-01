@@ -6,7 +6,7 @@ import { Content, Footer, Header, Sider } from './Components';
 import { IProps } from './interface';
 import model from './model';
 
-@AutoWrapper({ KOSconfig: { model } })
+@AutoWrapper({ KOSconfig: { model, namespace: "dataCenter" } })
 export default class DataCenter extends React.Component<IProps> {
   public render() {
     const { name, showSavedItem, tabs } = this.props;
@@ -21,7 +21,7 @@ export default class DataCenter extends React.Component<IProps> {
           <Header {...headerProps} />
           <Layout>
             <Sider />
-            <Content />
+            <Content {...this.props} />
           </Layout>
           <Footer />
         </Layout>

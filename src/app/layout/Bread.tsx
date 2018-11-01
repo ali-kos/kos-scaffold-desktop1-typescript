@@ -1,4 +1,5 @@
 import { Breadcrumb, Icon } from 'antd';
+import * as loadsh from 'lodash';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -6,7 +7,7 @@ interface IMenu {
   path: string;
   Component: string;
   icon: string;
-  name: string;
+  name?: string;
   mpid: string;
   route: string;
 }
@@ -21,7 +22,16 @@ export const Bread = ({ siderMenus, location }: IProps) => {
     siderMenus 是由上级传过来的 故已经是处理好route的数组
     进行比较 返回当前选中的路由元素
   */
-  const activeItem = siderMenus.find((item: any) => {
+ const breadMenus = loadsh.cloneDeep(siderMenus);
+  breadMenus.forEach((item) => {
+    if (item.path.indexOf(':') >= 0) {
+      item.path = item.path.substr(0, item.path.indexOf(':') - 1);
+    }
+    if (!item.name) {
+      item.name = item.path;
+    }
+  });
+  const activeItem = breadMenus.find((item: any) => {
     return location.pathname.includes(item.route);
   });
 
@@ -51,7 +61,7 @@ export const Bread = ({ siderMenus, location }: IProps) => {
   if (activeItem) {
     breadArray = getBreadArray(
       activeItem,
-      siderMenus,
+      breadMenus,
       "path",
       "mpid"
     ).reverse();

@@ -10,7 +10,7 @@ interface IProps extends KosProps {
   history: any;
 }
 
-@AutoWrapper({ KOSconfig: { model, namespace: "dashboard_myquery" } })
+@AutoWrapper({ KOSconfig: { model, namespace: "pieChart" } })
 export class Content extends React.Component<IProps> {
   public updateName(name: string) {
     this.props.dispatch!({

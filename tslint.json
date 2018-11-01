@@ -4,7 +4,8 @@
     "jsx-no-lambda": false,
     "object-literal-sort-keys": false,
     "no-console": false,
-    "no-empty-interface": false
+    "no-empty-interface": false,
+    "curly": true
   },
   "linterOptions": {
     "exclude": [

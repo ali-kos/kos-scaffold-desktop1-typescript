@@ -23,7 +23,7 @@ const getFormData = (params: any) => {
  */
 export default async function request(
   url: string,
-  options: { body: any; params: any }
+  options: { method: string; body: any; params?: any }
 ) {
   let newOptions;
   let newUrl = url;

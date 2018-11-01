@@ -6,7 +6,7 @@ import { Content, Footer, Header, Sider } from './Components';
 import { IProps } from './interface';
 import model from './model';
 
-@AutoWrapper({ KOSconfig: { model } })
+@AutoWrapper({ KOSconfig: { model, namespace: "pieChart" } })
 export default class PieChart extends React.Component<IProps> {
   public render() {
     const { name, showSavedItem, tabs, history, location } = this.props;
@@ -20,8 +20,8 @@ export default class PieChart extends React.Component<IProps> {
         <Layout>
           <Header {...headerProps} />
           <Layout>
-            <Content location={location} history={history}/>
-            <Sider/>
+            <Content location={location} history={history} />
+            <Sider />
           </Layout>
           <Footer />
         </Layout>

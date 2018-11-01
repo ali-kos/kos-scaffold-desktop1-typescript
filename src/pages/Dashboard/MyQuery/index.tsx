@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { AutoWrapper, Loader } from 'src-root/components';
+import * as React from "react";
+import { AutoWrapper, Loader } from "src-root/components";
 
-import router from './router';
+import router from "./router";
 
 @AutoWrapper({ router })
 export default class MyQuery extends React.Component<{

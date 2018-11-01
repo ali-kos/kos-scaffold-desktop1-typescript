@@ -7,7 +7,7 @@ import model from '../model';
 
 interface IProps extends KosProps {}
 
-@AutoWrapper({ KOSconfig: { model, namespace: "dashboard_myquery" } })
+@AutoWrapper({ KOSconfig: { model, namespace: "dataCenter" } })
 export class Sider extends React.Component<IProps> {
   public updateName(name: string) {
     this.props.dispatch!({

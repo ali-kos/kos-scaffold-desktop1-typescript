@@ -1,9 +1,7 @@
 import './index.less';
 
-// import Layout from 'antd/lib/layout';
 import { Layout } from 'antd';
 import KOS, { KosProps } from 'kos-core';
-// import * as loadsh from "lodash";
 import * as React from 'react';
 import { Loader } from 'src_components/Loader';
 
@@ -16,7 +14,7 @@ interface IM {
   path: string;
   Component: string;
   icon: string;
-  name: string;
+  name?: string;
   mpid: string;
   route: string;
 }

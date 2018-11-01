@@ -12,9 +12,14 @@ export default [
     name: "PIE"
   },
   {
-    path: "bar/:name/:id",
+    path: "bar",
     Component: BarChart,
     icon: "bar-chart",
     name: "BAR"
+  },
+  {
+    path: "bar/:name/:id",
+    Component: BarChart,
+    icon: "bar-chart"
   }
 ];

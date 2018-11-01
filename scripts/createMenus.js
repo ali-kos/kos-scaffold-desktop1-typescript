@@ -39,16 +39,17 @@ const handleRouter = fullPath => {
         let handledList = [];
         try {
           targetList = targetList
+            .replace(/\/\:/g, "/@")
             .replace(/\/\*{1,2}[\s\S]*?\*\//g, "")
             .replace(/\/\/.*/g, "")
-            .replace(/\r|\n|\t|\s|\'|;/g, "")
+            .replace(/\r|\n|\t|\s|\'|\"|;/g, "")
             .replace(/,(?=}|])/g, "")
             .replace(/\[|\]/g, "")
             .replace(
-              /([a-zA-Z]+):([a-zA-Z0-9_\/\-\u4e00-\u9fa5]*)/g,
+              /([a-zA-Z]+):([@a-zA-Z0-9_\/\-\u4e00-\u9fa5]*)/g,
               (m, $1, $2) => `"${$1}":"${$2}"`
             )
-            .replace(/\:\"\"/g, ":");
+            .replace(/\/@/g, "/:");
           handledList = handleExtraString(targetList, filedir);
           addList.push(handledList);
         } catch (error) {

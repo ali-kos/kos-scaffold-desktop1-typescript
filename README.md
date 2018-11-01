@@ -1,3 +1,6 @@
+# Version 0.2
+[Change log](https://github.com/ali-kos/kos-scaffold-desktop1-typescript/blob/master/CHANGE_LOG.md)
+
 # Commands
 
 developing:
@@ -43,4 +46,4 @@ src--
 
 # One more thing
 
-New features comming soon! We look forward your PR and your issues!
+New features comming soon! We are looking forward your PR and your issues!

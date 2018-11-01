@@ -11,7 +11,7 @@ interface IProps extends KosProps {
   tabs: any;
 }
 
-@AutoWrapper({ KOSconfig: { model, namespace: "dashboard_myquery" } })
+@AutoWrapper({ KOSconfig: { model, namespace: "dataCenter" } })
 export class Header extends React.Component<IProps> {
   constructor(props: any) {
     super(props);

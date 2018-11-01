@@ -7,7 +7,7 @@ interface IMenu {
   path: string;
   Component: string;
   icon: string;
-  name: string;
+  name?: string;
   mpid: string;
   route: string;
 }

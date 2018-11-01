@@ -10,7 +10,7 @@ interface IProps extends KosProps {
   match: any;
 }
 
-@AutoWrapper({ KOSconfig: { model, namespace: "dashboard_myquery" } })
+@AutoWrapper({ KOSconfig: { model, namespace: "barChart" } })
 export class Content extends React.Component<IProps> {
   public handleUrl1 = () => {
     const { history } = this.props;
@@ -27,6 +27,7 @@ export class Content extends React.Component<IProps> {
   };
 
   public render() {
+    console.log("this.props ==>", this.props);
     return (
       <Layout.Content>
         <Button.Group>

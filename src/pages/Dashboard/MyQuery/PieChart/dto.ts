@@ -1,5 +1,3 @@
-// import { KOSProps } from "kos-core";
-
 interface ICommon {
   name: string;
 }
