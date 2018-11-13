@@ -45,10 +45,7 @@ const handleRouter = fullPath => {
             .replace(/\r|\n|\t|\s|\'|\"|;/g, "")
             .replace(/,(?=}|])/g, "")
             .replace(/\[|\]/g, "")
-            .replace(
-              /([a-zA-Z]+):([@a-zA-Z0-9_\/\-\u4e00-\u9fa5]*)/g,
-              (m, $1, $2) => `"${$1}":"${$2}"`
-            )
+            .replace(/([a-zA-Z]+):([@a-zA-Z0-9_\/\?\-\u4e00-\u9fa5]*)/g, (m, $1, $2) => `"${$1}":"${$2}"`)
             .replace(/\/@/g, "/:");
           handledList = handleExtraString(targetList, filedir);
           addList.push(handledList);
@@ -65,7 +62,7 @@ const handleRouter = fullPath => {
   const utildir = path.join(utilPath, "Menus.ts");
   fs.writeFileSync(
     utildir,
-    `/* eslint-disable */\r\nexport const siderMenus = [${addList}];`
+    `/* eslint-disable */\r\n/* This file would be generated automatically by KOS while compile the app, you should no need change it. */\r\nexport const siderMenus = [${addList}];`
   );
 };
 

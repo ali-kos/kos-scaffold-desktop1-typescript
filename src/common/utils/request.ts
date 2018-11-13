@@ -1,5 +1,5 @@
-import { message } from "antd";
-import { stringify } from "querystring";
+import { message } from 'antd';
+import { stringify } from 'querystring';
 
 const getFormData = (params: any) => {
   const formData = new (window as any).FormData();
@@ -23,7 +23,7 @@ const getFormData = (params: any) => {
  */
 export default async function request(
   url: string,
-  options: { method: string; body: any; params?: any }
+  options: { method: string; body?: any; params?: any }
 ) {
   let newOptions;
   let newUrl = url;
@@ -58,14 +58,8 @@ export default async function request(
     };
   }
   const data = await response.json();
-  if (data.code !== "200" && data.code !== "46") {
+  if (data.code !== "200") {
     message.error(data.msg);
-    // 登录超时，跳转至登录页
-    if (data.code === "70201131") {
-      window.location.href = `http://${
-        window.location.host
-      }/index.html#/system/cloud/home`;
-    }
   }
   return data;
 }
