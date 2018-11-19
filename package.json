@@ -25,6 +25,18 @@
     "kos-form": "^1.0.2",
     "less": "^3.8.1",
     "less-loader": "^4.1.0",
+    {% if cssPreLoader == 'sass' %}
+    "sass": "^1.9.2",
+    "sass-loader": "^7.0.3",
+    {% endif %}
+    {% if cssPreLoader == 'scss' %}
+    "scss": "^0.2.4",
+    "scss-loader": "^0.0.1",
+    {% endif %}
+    {% if cssPreLoader == 'stylus' %}
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2"
+    {% endif %}
     "object-assign": "4.1.1",
     "path": "^0.12.7",
     "postcss-flexbugs-fixes": "3.2.0",
@@ -44,9 +56,11 @@
     "ts-jest": "22.0.1",
     "ts-loader": "^2.3.7",
     "tsconfig-paths-webpack-plugin": "^2.0.0",
+    {% if lint %}
     "tslint": "^5.7.0",
     "tslint-config-prettier": "^1.10.0",
     "tslint-react": "^3.2.0",
+    {% endif %}
     "uglifyjs-webpack-plugin": "^1.1.8",
     "url-loader": "0.6.2",
     "webpack": "3.8.1",
